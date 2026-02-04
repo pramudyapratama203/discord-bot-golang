@@ -17,10 +17,8 @@ func IsToxic(text string, apiKey string) (bool, error) {
 	}
 	defer client.Close()
 
-	// PAKAI MODEL YANG TERSEDIA DI LIST KAMU TADI
 	model := client.GenerativeModel("gemini-2.5-flash")
 
-	// Setelan biar AI-nya nggak "halu" dan fokus ke tugasnya
 	model.SetTemperature(0.1)
 
 	prompt := fmt.Sprintf(`Analisis apakah kalimat ini kasar, toksik, atau mengandung hinaan: "%s". 
